@@ -11343,7 +11343,7 @@ p {
 }
 
 .navbar-brand .brand-img {
-  width: 45px;
+  width: 60px;
   margin: -0.3125rem 0;
 }
 
@@ -11688,4 +11688,9 @@ pre .code {
 .section.bg-overlay {
   background: #2C3E50;
   color: #fff;
+}
+
+.services-images{
+  /* width: 200px; */
+  height: 150px;
 }

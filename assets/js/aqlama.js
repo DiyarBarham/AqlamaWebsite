@@ -50,3 +50,19 @@ $('#owl-testmonial').owlCarousel({
     nav: true,
     dots: false
 })
+
+
+
+const mySelect = document.getElementById('nativeLanguage');
+const div1 = document.getElementById('arabicText');
+const div2 = document.getElementById('arabicDialect');
+
+mySelect.addEventListener('change', () => {
+    if (mySelect.value === 'Arabic') {
+      div1.style.display = 'block';
+      div2.style.display = 'block';
+    } else {
+      div1.style.display = 'none';
+      div2.style.display = 'none';
+    }
+  });
