@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Aqlama | Form Page</title>
+
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.css">
+
+	<link rel="stylesheet" href="assets/css/form.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+	<nav id="scrollspy" class="navbar navbar-light bg-light navbar-expand-lg fixed-top" data-spy="affix" data-offset-top="20" dir="rtl">
+	    <div class="container">
+	        <a class="navbar-brand" href="#"><img src="assets/imgs/aqlama-ai-new-logo.png" alt="" class="brand-img"></a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		        <ul class="navbar-nav mr-auto">
+		            <li class="nav-item">
+		                <a class="nav-link" href="/">الرئيسية</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#about" onclick="location.href=this.href; return false;">من نحن</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#services" onclick="location.href=this.href; return false;">الخدمات</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#news" onclick="location.href=this.href; return false;">الأخبار والفعاليات</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#datasets" onclick="location.href=this.href; return false;">مجموعات البيانات</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#work" onclick="location.href=this.href; return false;">العمل معنا</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="/#contact" onclick="location.href=this.href; return false;">تواصل معنا</a>
+		            </li>
+		        </ul>
+
+		        <ul class="navbar-nav mr-auto">
+		            <!-- <li class="nav-item">
+		                <a class="nav-link" href="#home">ENGLISH</a>
+		            </li> -->
+		            <li class="nav-item">
+		                <a class="nav-link" href="">ENGLISH</a>
+		            </li>
+		        </ul>
+    		</div>
+		</div>
+	</nav> 
+
+    <header id="home" class="header">
+    	<div class="overlay"></div>
+    	<div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+		    <div class="container">
+		        <div class="carousel-inner">
+		            <div class="carousel-item active">
+		                <div class="carousel-caption d-none d-md-block">
+		                    <h1 class="carousel-title text-right" dir="rtl">نموذج استمارة<br> للعمل الحر</h1>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+    </header>
+
+    <section class="section" id="form">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-6 text-right">
+                    <form action="#" th:action="@{/form}" th:object="${formDto}" method="post">
+                        <strong class="text-right">الإيميل:</strong>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="الإيميل" th:field="*{email}">
+                        </div>
+                        <strong class="text-right">الإسم الشخصي:</strong>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fName" placeholder="الإسم الأول" th:field="*{fName}">
+                        </div>
+                        <strong class="text-right">اسم الأب:</strong>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mName" placeholder="اسم الأب" th:field="*{mName}">
+                        </div>
+                        <strong class="text-right">اسم العائلة:</strong>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lName" placeholder="اسم العائلة" th:field="*{lName}">
+                        </div>
+                        <strong class="text-right">رقم الهاتف:</strong>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="رقم الهاتف" th:field="*{phoneNumber}">
+                        </div>
+                        
+                        <strong class="text-right">هل هذا الرقم متصل ب الواتساب؟</strong>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="whatsppYes" id="whatsppYes" value="yes" th:field="*{whatsppYes}">
+                                <label class="form-check-label mr-1" for="whatsppYes">نعم</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="whatsppNo" id="whatsppNo" value="no" th:field="*{whatsppYes}">
+                                <label class="form-check-label mr-1" for="whatsppNo">لا</label>
+                            </div>
+                        </div>
+
+                        <strong class="text-right">Date of Birth:</strong>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="age" placeholder="Date of Birth" th:field="*{age}">
+                        </div>
+
+                        <strong class="text-right">الجنس:</strong>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="male" id="male" value="male" th:field="*{gender}">
+                                <label class="form-check-label mr-1" for="male">ذكر</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="female" id="female" value="female" th:field="*{gender}">
+                                <label class="form-check-label mr-1" for="female">أنثى</label>
+                            </div>
+                        </div>
+
+                        <strong class="text-right">بلد الميلاد:</strong>
+                        <div class="form-group">
+                            <select class="form-control" id="coutryOfBirth" th:field="*{coutryOfBirth}">
+                               <option value="Palestine">فلسطين</option>
+                               <option value="Jordan">الأردن</option>
+                               <option value="USA">الولايات المتحدة الأمريكية</option>
+                               <option value="UK">المملكة المتحدة</option>
+                               <option value="UAE">الإمارات العربية المتحدة</option>
+                               <option value="Qatar">قطر</option>
+                            </select>
+                         </div>
+
+                        <strong class="text-right">بلد السكن الحالي:</strongv>
+                        <div class="form-group">
+                            <select class="form-control" id="coutryOfResidency" th:field="*{coutryOfResidency}">
+                                <option value="Palestine">فلسطين</option>
+                               <option value="Jordan">الأردن</option>
+                               <option value="USA">الولايات المتحدة الأمريكية</option>
+                               <option value="UK">المملكة المتحدة</option>
+                               <option value="UAE">الإمارات العربية المتحدة</option>
+                               <option value="Qatar">قطر</option>
+                             </select>
+                         </div>
+
+                         <strong class="text-right">هل سبق لك أن عشت في بلد غير بلدك الأصلي:</strong>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="outsideYes" id="outsideYes" value="yes" th:field="*{outsideYes}">
+                                <label class="form-check-label mr-1" for="outsideYes">نعم</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="outsideNo" id="outsideNo" value="no" th:field="*{outsideYes}">
+                                <label class="form-check-label mr-1" for="outsideNo">لا</label>
+                            </div>
+                        </div>
+
+                        <strong class="text-right">مستوى التعليم:</strong>
+                        <div class="form-group">
+                            <select class="form-control" id="Education" th:field="*{Education}">
+                               <option value="High School Diploma">توجيهي</option>
+                               <option value="Bachelor Degree">شهادة بكالوريوس</option>
+                               <option value="Master Degree">شهادة ماستر</option>
+                               <option value="Doctorate">دكتوراه</option>
+                            </select>
+                         </div>
+
+                         <strong class="text-right">التخصص الجامعي:</strong>
+                         <div class="form-group">
+                            <input type="text" class="form-control" id="major" placeholder="ادخل التخصص" th:field="*{major}">
+                        </div>
+
+                        <strong class="text-right">ما هي اللغة التي تعتبرها لغتك الأم:</strong>
+                        <div class="form-group">
+                            <select class="form-control" id="nativeLanguage" th:field="*{nativeLanguage}">
+                               	<option value="Arabic">العربية</option>
+								<option value="Turkish">التركية</option>
+								<option value="Farsi (Persian)">الفارسية (الفارسية)</option>
+								<option value="Hebrew">العبرية</option>
+								<option value="Tamazight">الأمازيغية</option>
+								<option value="Kurdish">الكردية</option>
+								<option value="Brazilian Portuguese">البرتغالية البرازيلية</option>
+								<option value="Spanish">الإسبانية</option>
+								<option value="English">الإنجليزية</option>
+								<option value="Armenian">الأرمنية</option>
+								<option value="Indic English">الإنجليزية الهندية</option>
+								<option value="Bengali">البنغالية</option>
+								<option value="Gujarati">الغوجاراتية</option>
+								<option value="Hindi">الهندية</option>
+								<option value="Kannada">الكانادا</option>
+								<option value="Malayalam">المالايالامية</option>
+								<option value="Punjabi">البنجابية</option>
+								<option value="Tamil">التاميلية</option>
+								<option value="Telugu">التيلجو</option>
+								<option value="Urdu">الأردية</option>
+								<option value="Marathi">المراتية</option>
+								<option value="Kashmiri">الكشميرية</option>
+								<option value="Sindhi">السندية</option>
+								<option value="Swahili">السواحيلية</option>
+								<option value="Amharic">الأمهرية</option>
+								<option value="Oromo">الأورومو</option>
+								<option value="Hausa">الهوسا</option>
+								<option value="Igbo">الإيغبو</option>
+								<option value="Zulu">الزولو</option>
+								<option value="Shona">الشونا</option>
+								<option value="Fula">الفولا</option>
+								<option value="Somali">الصومالية</option>
+								<option value="Akan">الأكان</option>
+                            </select>
+                         </div>
+                         <strong class="text-right" id="arabicText">ما هي اللهجة التي تتكلمها:</strong>
+                         <div class="form-group">
+                            <select class="form-control" id="arabicDialect" th:field="*{arabicDialect}">
+                                <option value=""></option>
+                               	<option value="Jordan">العربية (الأردن)</option>
+								<option value="Lebanon">العربية (لبنان)</option>
+								<option value="Palestine">العربية (فلسطين)</option>
+								<option value="Syria">العربية (سوريا)</option>
+								<option value="Algeria">العربية (الجزائر)</option>
+								<option value="Morocco">العربية (المغرب)</option>
+								<option value="Tunisia">العربية (تونس)</option>
+								<option value="Libya">العربية (ليبيا)</option>
+								<option value="U.A.E.">العربية (الإمارات)</option>
+								<option value="Bahrain">العربية (البحرين)</option>
+								<option value="Kuwait">العربية (الكويت)</option>
+								<option value="Oman">العربية (عُمان)</option>
+								<option value="Qatar">العربية (قطر)</option>
+								<option value="Saudi Arabia">العربية (السعودية)</option>
+								<option value="Yemen">العربية (اليمن)</option>
+								<option value="Egypt">العربية (مصر)</option>
+								<option value="Iraq">العربية (العراق)</option>
+                            </select>
+                         </div>
+
+                         <strong class="text-right">رجاءً قم بادخال أي لغات أخرى تستطيع تكلمها:</strong>
+                         <div class="form-group">
+                            <input type="text" class="form-control" id="otherLanguages" placeholder="أترك هذا القسم فارغ إذا لم يكن هنالك أي لغات أخرى" th:field="*{otherLanguages}">
+                        </div>
+
+                        <strong class="text-right">ما هو مستواك في لغتك الثانية:</strong>
+                        <div class="form-group">
+                            <select class="form-control" id="secondLanguageLevel" th:field="*{secondLanguageLevel}">
+                               	<option value="Native">كلغتي الأم</option>
+								<option value="Fluent">بطلاقة</option>
+								<option value="Intermediate">متوسط</option>
+								<option value="Beginner">مبتدئ</option>
+                            </select>
+                         </div>
+                         
+                         <div class="form-group">
+	                            <strong class="text-right">قم باختيار كل مهاراتك:</strong>
+	                         <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="transcription" th:field="*{transcription}">
+	                            <label class="form-check-label mr-3" for="transcription">
+	                              Transcription/ Captioning/ Subtitling
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="translation" th:field="*{translation}">
+	                            <label class="form-check-label mr-3" for="translation">
+	                              Translation/ Localization
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="annotation" th:field="*{annotation}">
+	                            <label class="form-check-label mr-3" for="annotation">
+	                              Entity Tagging/ Annotation
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="collection" th:field="*{collection}">
+	                            <label class="form-check-label mr-3" for="collection">
+	                              Speech Data Collection
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="development" th:field="*{development}">
+	                            <label class="form-check-label mr-3" for="development">
+	                              Content Development/ Text/ Voice/ Video
+	                            </label>
+	                          </div>
+                         </div>
+                          
+                          <!-- <strong>If you have any other area of expertise. Please specify:</strong>
+                         <div class="form-group">
+                            <input type="text" class="form-control" id="otherExpertises" placeholder="Leave empty if non">
+                        </div> -->
+                        
+                        <div class="form-group">
+	                          <strong class="text-right">اختر كل الأجهزة التي يمكنك استعمالها للعمل:</strong>
+	                         <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="laptop" th:field="*{laptop}">
+	                            <label class="form-check-label mr-3" for="laptop">
+	                              كمبيوتر أو لابتوب
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="smartphone" th:field="*{smartphone}">
+	                            <label class="form-check-label mr-3" for="smartphone">
+	                              هاتف ذكي
+	                            </label>
+	                          </div>
+	                          <div class="form-check">
+	                            <input class="form-check-input" type="checkbox" value="" id="tablet" th:field="*{tablet}">
+	                            <label class="form-check-label mr-3" for="tablet">
+	                              جهاز لوحي (مثل الايباد)
+	                            </label>
+	                          </div>
+                          </div>
+                          
+                          <div class="form-group">
+                          <strong class="text-right">ما هو نظام التشغيل الخاص بجهاز الحاسوب :</strong>
+                         <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="macOS" th:field="*{macOS}">
+                            <label class="form-check-label mr-3" for="macOS">
+                              ماك
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="windows" th:field="*{windows}">
+                            <label class="form-check-label mr-3" for="windows">
+                              ويندوز
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="linux" th:field="*{linux}">
+                            <label class="form-check-label mr-3" for="linux">
+                              لينوكس
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="chromeos" th:field="*{chromeos}">
+                            <label class="form-check-label mr-3" for="chromeos">
+                              كروم os
+                            </label>
+                          </div>
+                          </div>
+                          
+                          <div class="form-group">
+	                          <strong class="text-right">ما هو نظام التشغيل الخاص بهاتفك الذكي:</strong>
+	                          <div class="form-check">
+	                             <input class="form-check-input" type="checkbox" value="" id="andriod" th:field="*{andriod}">
+	                             <label class="form-check-label mr-3" for="andriod">
+	                                أندرويد
+	                             </label>
+	                           </div>
+	                           <div class="form-check">
+	                             <input class="form-check-input" type="checkbox" value="" id="ios" th:field="*{ios}">
+	                             <label class="form-check-label mr-3" for="ios">
+	                               اي او اس
+	                             </label>
+	                           </div>
+                           </div>
+
+                           <strong class="text-right">أدخل النسخة الخاصة بالجهاز الخاص بك:</strong>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="deviceModel" placeholder="Device model number" th:field="*{deviceModel}">
+                        </div>
+
+                        <strong class="text-right">ما هي عدد الساعات التي يمكنك تخصيصها للعمل؟ ساعات العمل مرنة.</strong>
+                        <div class="form-group">
+                            <select class="form-control" id="workingHours" th:field="*{WorkingHours}">
+                               <option value="3-hours">ثلاث ساعات على الأقل</option>
+                               <option value="6-hours">من ثلاث ساعات إلى ستة ساعات</option>
+                               <option value="8-hours">ثمانية ساعات كل يوم</option>
+                            </select>
+                         </div>
+                         <!--
+                         <strong>Upload your Resume/CV:</strong>
+                         <div class="form-group">
+                           <input type="file" class="form-control" id="resume" placeholder="resume">
+                       </div> -->
+                       <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block" value="قم بإرسال الطلب">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="section pb-0" dir="rtl">
+	
+	    <div class="container">
+	        <h3 class="section-title mb-5 text-right">اتصل بنا</h3>
+	
+	        <div class="row align-items-center justify-content-between">
+	            <div class="col-md-8 col-lg-7">
+	
+	                <form class="contact-form" action="#" th:action="@{/contactus}" th:object="${contactUsDto}" method="post">
+	                    <div class="form-row">
+	                        <div class="col form-group">
+	                            <input type="text" class="form-control" placeholder="الاسم" th:field="*{name}">
+	                        </div>
+	                        <div class="col form-group">
+	                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" th:field="*{email}">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="رسالتك" th:field="*{message}"></textarea>
+	                    </div>
+	                    <div class="form-group">
+	                        <input type="submit" class="btn btn-primary btn-block" value="إرسال الرسالة">
+	                    </div>
+	                </form>
+	            </div>
+	            <div class="col-md-4 d-none d-md-block order-1">
+	                <ul class="list">
+	                    <li class="list-head">
+	                        <h6 class="text-right">معلومات الاتصال</h6>
+	                    </li>
+	                    <li class="list-body">
+	                        <p class="py-2 text-right">اتصل بنا وسنعود إليك في غضون 24 ساعة.</p>
+	                        <p class="py-2 text-right"><i class="ti-location-pin"></i> رام الله، فلسطين.</p>
+	                        <p class="py-2 text-right"><i class="ti-email"></i>  fayeq@aqlama.com</p>
+	                        <p class="py-2 text-right"><i class="ti-microphone"></i> +97022897264</p>
+	
+	                    </li>
+	                </ul> 
+	            </div>
+	        </div>
+	
+	        <footer class="footer mt-5 border-top">
+	            <div class="row align-items-center justify-content-center">
+	                <div class="col-md-6 text-center text-md-right">
+	                    <p class="mb-0"><a target="_blank" href="http://www.aqlama.com">أقلمة</a> &copy; <script>document.write(new Date().getFullYear())</script> جميع الحقوق محفوظة</p>
+	                </div>
+	                <div class="col-md-6 text-center text-md-left" dir="ltr">
+	                    <div class="social-links">
+	                        <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+	                        <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+	                        <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+	                        <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+                        </div>
+                    </div>
+                </div> 
+            </footer>
+        </div>
+    </section>
+	
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    
+    <!-- Owl carousel  -->
+    <script src="assets/vendors/owl-carousel/js/owl.carousel.js"></script>
+
+
+    <script src="assets/js/aqlama.js"></script>
+
+</body>
+</html>

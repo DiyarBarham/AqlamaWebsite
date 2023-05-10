@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Aqlama | Home Page</title>
+    <title>Aqlama | Form Page</title>
 
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
@@ -27,25 +27,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="/#about" onclick="location.href=this.href; return false;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="/#services" onclick="location.href=this.href; return false;">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News & Events</a>
+                        <a class="nav-link" href="/#news" onclick="location.href=this.href; return false;">News & Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#datasets">Datasets</a>
+                        <a class="nav-link" href="/#datasets" onclick="location.href=this.href; return false;">Datasets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#work">Work with us</a>
+                        <a class="nav-link" href="/#work" onclick="location.href=this.href; return false;">Work with us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact us</a>
+                        <a class="nav-link" href="/#contact" onclick="location.href=this.href; return false;">Contact us</a>
                     </li>
                 </ul>
 
@@ -83,201 +83,213 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-6">
-                    <form>
+                    <form action="#" th:action="@{/form}" th:object="${formDto}" method="post">
                         <strong>E-mail Address:</strong>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Email address">
+                            <input type="email" class="form-control" id="email" placeholder="Email address" th:field="*{email}">
                         </div>
                         <strong>First Name:</strong>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="fName" placeholder="First Name">
+                            <input type="text" class="form-control" id="fName" placeholder="First Name" th:field="*{fName}">
                         </div>
                         <strong>Middle Name:</strong>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="mName" placeholder="Middle Name">
+                            <input type="text" class="form-control" id="mName" placeholder="Middle Name" th:field="*{mName}">
                         </div>
                         <strong>Last Name:</strong>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lName" placeholder="Last Name">
+                            <input type="text" class="form-control" id="lName" placeholder="Last Name" th:field="*{lName}">
                         </div>
                         <strong>Phone Number:</strong>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" th:field="*{phoneNumber}">
                         </div>
                         
                         <strong>Is this phone number on WhatsApp?</strong>
                         <div class="form-group">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="whatsppYes" id="whatsppYes" value="yes">
+                                <input class="form-check-input" type="radio" name="whatsppYes" id="whatsppYes" value="yes" th:field="*{whatsppYes}">
                                 <label class="form-check-label" for="whatsppYes">Yes</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="whatsppNo" id="whatsppNo" value="no">
+                                <input class="form-check-input" type="radio" name="whatsppNo" id="whatsppNo" value="no" th:field="*{whatsppYes}">
                                 <label class="form-check-label" for="whatsppNo">No</label>
                             </div>
                         </div>
 
                         <strong>Date of Birth:</strong>
                         <div class="form-group">
-                            <input type="date" class="form-control" id="age" placeholder="Date of Birth">
+                            <input type="date" class="form-control" id="age" placeholder="Date of Birth" th:field="*{age}">
                         </div>
 
                         <strong>Gender:</strong>
                         <div class="form-group">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="male" id="male" value="male">
+                                <input class="form-check-input" type="radio" name="male" id="male" value="male" th:field="*{gender}">
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="female" id="female" value="female">
+                                <input class="form-check-input" type="radio" name="female" id="female" value="female" th:field="*{gender}">
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                         </div>
 
                         <strong>Country of Birth:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="coutryOfBirth">
-                               <option>Palestine</option>
-                               <option>Jordan</option>
-                               <option>USA</option>
-                               <option>UK</option>
-                               <option>UAE</option>
-                               <option>Qatar</option>
+                            <select class="form-control" id="coutryOfBirth" th:field="*{coutryOfBirth}">
+                               <option value="Palestine">Palestine</option>
+                               <option value="Jordan">Jordan</option>
+                               <option value="USA">USA</option>
+                               <option value="UK">UK</option>
+                               <option value="UAE">UAE</option>
+                               <option value="Qatar">Qatar</option>
                             </select>
                          </div>
 
                         <strong>Country of Residency:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="coutryOfResidency">
-                                <option>Palestine</option>
-                                <option>Jordan</option>
-                                <option>USA</option>
-                                <option>UK</option>
-                                <option>UAE</option>
-                                <option>Qatar</option>
+                            <select class="form-control" id="coutryOfResidency" th:field="*{coutryOfResidency}">
+                                <option value="Palestine">Palestine</option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                                <option value="UAE">UAE</option>
+                                <option value="Qatar">Qatar</option>
                              </select>
                          </div>
 
                          <strong>Have you ever lived outside of your home country:</strong>
                         <div class="form-group">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="outsideYes" id="outsideYes" value="yes">
+                                <input class="form-check-input" type="radio" name="outsideYes" id="outsideYes" value="yes" th:field="*{outsideYes}">
                                 <label class="form-check-label" for="outsideYes">Yes</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="outsideNo" id="outsideNo" value="no">
+                                <input class="form-check-input" type="radio" name="outsideNo" id="outsideNo" value="no" th:field="*{outsideYes}">
                                 <label class="form-check-label" for="outsideNo">No</label>
                             </div>
                         </div>
 
                         <strong>Education/Qualification:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="Education">
-                               <option>High School Diploma</option>
-                               <option>Bachelor Degree</option>
-                               <option>Master Degree</option>
-                               <option>Doctorate</option>
+                            <select class="form-control" id="Education" th:field="*{Education}">
+                               <option value="High School Diploma">High School Diploma</option>
+                               <option value="Bachelor Degree">Bachelor Degree</option>
+                               <option value="Master Degree">Master Degree</option>
+                               <option value="Doctorate">Doctorate</option>
                             </select>
                          </div>
 
                          <strong>College Major/Specialization:</strong>
                          <div class="form-group">
-                            <input type="text" class="form-control" id="major" placeholder="Enter Major">
+                            <input type="text" class="form-control" id="major" placeholder="Enter Major" th:field="*{major}">
                         </div>
 
                         <strong>Which language do you consider as your native language:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="nativeLanguage">
-                               <option>Arabic</option>
-                               <option>Turkish</option>
-                               <option>Farsi (Persian)</option>
-                               <option>Hebrew</option>
-                                <option>Tamazight</option>
-                                <option>Kurdish</option>
-                                <option>Brazilian Portuguese</option>
-                                <option>Spanish</option>
-                                <option>English</option>
-                                <option>Armenian</option>
-                                <option>Indic English</option>
-                                <option>Bengali</option>
-                                <option>Gujarati</option>
-                                <option>Hindi</option>
-                                <option>Kannada</option>
-                                <option>Malayalam</option>
-                                <option>Punjabi</option>
-                                <option>Tamil</option>
-                                <option>Telugu</option>
-                                <option>Urdu</option>
-                                <option>Marathi</option>
-                                <option>Kashmiri</option>
-                                <option>Sindhi</option>
-                                <option>Swahili</option>
-                                <option>Amharic</option>
-                                <option>Oromo</option>
-                                <option>Hausa</option>
-                                <option>Igbo</option>
-                                <option>Zulu</option>
-                                <option>Shona</option>
-                                <option>Fula</option>
-                                <option>Somali</option>
-                                <option>Akan</option>
+                            <select class="form-control" id="nativeLanguage" th:field="*{nativeLanguage}">
+                               <option value="Arabic">Arabic</option>
+								<option value="Turkish">Turkish</option>
+								<option value="Farsi (Persian)">Farsi (Persian)</option>
+								<option value="Hebrew">Hebrew</option>
+								<option value="Tamazight">Tamazight</option>
+								<option value="Kurdish">Kurdish</option>
+								<option value="Brazilian Portuguese">Brazilian Portuguese</option>
+								<option value="Spanish">Spanish</option>
+								<option value="English">English</option>
+								<option value="Armenian">Armenian</option>
+								<option value="Indic English">Indic English</option>
+								<option value="Bengali">Bengali</option>
+								<option value="Gujarati">Gujarati</option>
+								<option value="Hindi">Hindi</option>
+								<option value="Kannada">Kannada</option>
+								<option value="Malayalam">Malayalam</option>
+								<option value="Punjabi">Punjabi</option>
+								<option value="Tamil">Tamil</option>
+								<option value="Telugu">Telugu</option>
+								<option value="Urdu">Urdu</option>
+								<option value="Marathi">Marathi</option>
+								<option value="Kashmiri">Kashmiri</option>
+								<option value="Sindhi">Sindhi</option>
+								<option value="Swahili">Swahili</option>
+								<option value="Amharic">Amharic</option>
+								<option value="Oromo">Oromo</option>
+								<option value="Hausa">Hausa</option>
+								<option value="Igbo">Igbo</option>
+								<option value="Zulu">Zulu</option>
+								<option value="Shona">Shona</option>
+								<option value="Fula">Fula</option>
+								<option value="Somali">Somali</option>
+								<option value="Akan">Akan</option>
+
                             </select>
                          </div>
                          <strong id="arabicText">Which dialect do you speak:</strong>
                          <div class="form-group">
-                            <select class="form-control" id="arabicDialect">
-                                <option></option>
-                               <option>العربية - مصر</option>
-                               <option>العربية - الجزائر</option>
-                               <option>العربية - فلسطين</option>
-                               <option>العربية - قطر</option>
-                               <option>العربية - سعودية</option>
-                               <option>العربية - الأردن</option>
+                            <select class="form-control" id="arabicDialect" th:field="*{arabicDialect}">
+                                <option value=""></option>
+                               <option value="Jordan">Arabic (Jordan)</option>
+								<option value="Lebanon">Arabic (Lebanon)</option>
+								<option value="Palestine">Arabic (Palestine)</option>
+								<option value="Syria">Arabic (Syria)</option>
+								<option value="Algeria">Arabic (Algeria)</option>
+								<option value="Morocco">Arabic (Morocco)</option>
+								<option value="Tunisia">Arabic (Tunisia)</option>
+								<option value="Libya">Arabic (Libya)</option>
+								<option value="U.A.E.">Arabic (U.A.E.)</option>
+								<option value="Bahrain">Arabic (Bahrain)</option>
+								<option value="Kuwait">Arabic (Kuwait)</option>
+								<option value="Oman">Arabic (Oman)</option>
+								<option value="Qatar">Arabic (Qatar)</option>
+								<option value="Saudi Arabia">Arabic (Saudi Arabia)</option>
+								<option value="Yemen">Arabic (Yemen)</option>
+								<option value="Egypt">Arabic (Egypt)</option>
+								<option value="Iraq">Arabic (Iraq)</option>
                             </select>
                          </div>
 
                          <strong>Do you speak any other languages or dialects, please specify:</strong>
                          <div class="form-group">
-                            <input type="text" class="form-control" id="otherLanguages" placeholder="Leave empty if non">
+                            <input type="text" class="form-control" id="otherLanguages" placeholder="Leave empty if non" th:field="*{otherLanguages}">
                         </div>
 
                         <strong>What is your level in the second language:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="secondLanguageLevel">
-                               <option>Native</option>
-                               <option>Fluent</option>
-                               <option>Intermediate</option>
-                               <option>Beginner</option>
+                            <select class="form-control" id="secondLanguageLevel" th:field="*{secondLanguageLevel}">
+                               <option value="Native">Native</option>
+                               <option value="Fluent">Fluent</option>
+                               <option value="Intermediate">Intermediate</option>
+                               <option value="Beginner">Beginner</option>
                             </select>
                          </div>
 
                          <strong>Select the area of experience. Please select all that applies</strong>
                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="transcription">
+                            <input class="form-check-input" type="checkbox" value="" id="transcription" th:field="*{transcription}">
                             <label class="form-check-label" for="transcription">
                               Transcription/ Captioning/ Subtitling
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="translation">
+                            <input class="form-check-input" type="checkbox" value="" id="translation" th:field="*{translation}">
                             <label class="form-check-label" for="translation">
                               Translation/ Localization
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="annotation">
+                            <input class="form-check-input" type="checkbox" value="" id="annotation" th:field="*{annotation}">
                             <label class="form-check-label" for="annotation">
                               Entity Tagging/ Annotation
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="collection">
+                            <input class="form-check-input" type="checkbox" value="" id="collection" th:field="*{collection}">
                             <label class="form-check-label" for="collection">
                               Speech Data Collection
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="development">
+                            <input class="form-check-input" type="checkbox" value="" id="development" th:field="*{development}">
                             <label class="form-check-label" for="development">
                               Content Development/ Text/ Voice/ Video
                             </label>
@@ -290,19 +302,19 @@
 
                           <strong>Which types of devices do you own or could use for work? Please select all that applies:</strong>
                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="laptop">
+                            <input class="form-check-input" type="checkbox" value="" id="laptop" th:field="*{laptop}">
                             <label class="form-check-label" for="laptop">
                               PC or Laptop
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="smartphone">
+                            <input class="form-check-input" type="checkbox" value="" id="smartphone" th:field="*{smartphone}">
                             <label class="form-check-label" for="smartphone">
                               SmartPhone
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="tablet">
+                            <input class="form-check-input" type="checkbox" value="" id="tablet" th:field="*{tablet}">
                             <label class="form-check-label" for="tablet">
                               Tablet (i.e. iPad)
                             </label>
@@ -311,25 +323,25 @@
 
                           <strong>What is the operating system in your PC or Laptop:</strong>
                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="macOS">
+                            <input class="form-check-input" type="checkbox" value="" id="macOS" th:field="*{macOS}">
                             <label class="form-check-label" for="macOS">
                               MacOS
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="windows">
+                            <input class="form-check-input" type="checkbox" value="" id="windows" th:field="*{windows}">
                             <label class="form-check-label" for="windows">
                               Microsoft Windows
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="linux">
+                            <input class="form-check-input" type="checkbox" value="" id="linux" th:field="*{linux}">
                             <label class="form-check-label" for="linux">
                               Linux
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="chromeos">
+                            <input class="form-check-input" type="checkbox" value="" id="chromeos" th:field="*{chromeos}">
                             <label class="form-check-label" for="chromeos">
                               ChromeOS
                             </label>
@@ -337,13 +349,13 @@
 
                           <strong>What is the operating system in your SmartPhone:</strong>
                           <div class="form-check">
-                             <input class="form-check-input" type="checkbox" value="" id="andriod">
+                             <input class="form-check-input" type="checkbox" value="" id="andriod" th:field="*{andriod}">
                              <label class="form-check-label" for="andriod">
                                 Andriod
                              </label>
                            </div>
                            <div class="form-check">
-                             <input class="form-check-input" type="checkbox" value="" id="ios">
+                             <input class="form-check-input" type="checkbox" value="" id="ios" th:field="*{ios}">
                              <label class="form-check-label" for="ios">
                                IOS
                              </label>
@@ -351,22 +363,25 @@
 
                            <strong>Please soecify the model number of your device:</strong>
                           <div class="form-group">
-                            <input type="text" class="form-control" id="deviceModel" placeholder="Device model number">
+                            <input type="text" class="form-control" id="deviceModel" placeholder="Device model number" th:field="*{deviceModel}">
                         </div>
 
                         <strong>How many hours can you work daily? working hours are flexible:</strong>
                         <div class="form-group">
-                            <select class="form-control" id="workingHours">
-                               <option>3 hours minimum</option>
-                               <option>3-6 hours per day</option>
-                               <option>8 hours per day</option>
+                            <select class="form-control" id="workingHours" th:field="*{WorkingHours}">
+                               <option value="3-hours">3 hours minimum</option>
+                               <option value="6-hours">3-6 hours per day</option>
+                               <option value="8-hours">8 hours per day</option>
                             </select>
                          </div>
-
+                         <!--
                          <strong>Upload your Resume/CV:</strong>
                          <div class="form-group">
                            <input type="file" class="form-control" id="resume" placeholder="resume">
-                       </div>
+                       </div> -->
+                       <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block" value="Submit Form">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -381,18 +396,17 @@
 
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8 col-lg-7">
-
-                    <form class="contact-form">
+                    <form class="contact-form" action="#" th:action="@{/contactus}" th:object="${contactUsDto}" method="post">
                         <div class="form-row">
                             <div class="col form-group">
-                                <input type="text" class="form-control" placeholder="Name">
+                                <input type="text" class="form-control" placeholder="Name" th:field="*{name}">
                             </div>
                             <div class="col form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" placeholder="Email" th:field="*{email}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Your Message"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Your Message" th:field="*{message}"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-block" value="Send Message">
